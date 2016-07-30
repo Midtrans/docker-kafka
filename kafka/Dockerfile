@@ -3,7 +3,7 @@ FROM java:openjdk-8-jre
 ENV DEBIAN_FRONTEND=noninteractive \
     SCALA_VERSION=2.11 \
     KAFKA_VERSION=0.9.0.1 \
-    PATH=/opt/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION"/bin:$PATH
+    PATH=/opt/kafka/bin:$PATH
 
 # Install Kafka, Zookeeper, and other needed things
 RUN apt-get update && \
