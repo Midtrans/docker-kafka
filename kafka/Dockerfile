@@ -4,7 +4,7 @@ FROM java:openjdk-8-jre
 
 ENV DEBIAN_FRONTEND=noninteractive \
   SCALA_VERSION=2.11 \
-  KAFKA_VERSION=0.8.2.2
+  KAFKA_VERSION=0.9.0.1
 
 # Install Kafka, Zookeeper and other needed things
 RUN apt-get update && \
