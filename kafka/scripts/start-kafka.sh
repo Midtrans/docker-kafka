@@ -16,12 +16,6 @@ fi
 mkdir -p $KAFKA_LOG_DIRS
 sed -r -i "s/#(log.dirs)=(.*)/${KAFKA_LOG_DIRS}/g" $KAFKA_HOME/config/server.properties
 
-# Configure advertised host/port if we run in helios
-if [ ! -z "$HELIOS_PORT_kafka" ]; then
-    ADVERTISED_HOST=`echo $HELIOS_PORT_kafka | cut -d':' -f 1 | xargs -n 1 dig +short | tail -n 1`
-    ADVERTISED_PORT=`echo $HELIOS_PORT_kafka | cut -d':' -f 2`
-fi
-
 # Set the external host and port
 if [ ! -z "$ADVERTISED_HOST" ]; then
     echo "advertised host: $ADVERTISED_HOST"
