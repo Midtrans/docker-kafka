@@ -1,6 +1,9 @@
 # Kafka in Docker
 
-This repository provides everything you need to run Kafka in Docker.
+This repository provides everything you need to run Kafka in Docker. It's a
+patched-up fork of
+[spotify/docker-kafka](https://github.com/spotify/docker-kafka) which seems to
+be abandoned.
 
 ## Why?
 
@@ -39,5 +42,4 @@ kafka-console-consumer.sh --zookeeper localhost:2181 --topic test
 
 ## TODO
 
-* Not particularly optimized for startup time
-* Better docs
+- [ ] Add TLS support
