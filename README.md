@@ -19,11 +19,8 @@ in the same container. This means:
 First, launch the broker:
 
 ```bash
-docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=HOST_IP_GOES_HERE --env ADVERTISED_PORT=9092 kchristidis/kafka
+docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=0.0.0.0 --env ADVERTISED_PORT=9092 kchristidis/kafka
 ```
-
-Where you substitute `HOST_IP_GOES_HERE` with [the IP of your host
-machine](http://superuser.com/a/1080211), e.g. `192.168.0.5`.
 
 Then, from your localhost, launch a producer and a consumer:
 
