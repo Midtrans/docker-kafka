@@ -17,10 +17,14 @@ mkdir -p $KAFKA_LOG_DIRS
 sed -r -i "s/#(log.dirs)=(.*)/${KAFKA_LOG_DIRS}/g" $KAFKA_HOME/config/server.properties
 
 # Set the external host and port
-if [ ! -z "$ADVERTISED_HOST" ]; then
-    echo "advertised host: $ADVERTISED_HOST"
-    sed -r -i "s/#(advertised.host.name)=(.*)/\1=$ADVERTISED_HOST/g" $KAFKA_HOME/config/server.properties
+if [ -z "$ADVERTISED_HOST" ]; then
+    ADVERTISED_HOST="$(hostname --ip-address)"
+    echo "advertised host set automatically: $ADVERTISED_HOST"
+else
+    echo "advertised host set via ENV var: $ADVERTISED_HOST"
 fi
+sed -r -i "s/#(advertised.host.name)=(.*)/\1=$ADVERTISED_HOST/g" $KAFKA_HOME/config/server.properties
+
 if [ ! -z "$ADVERTISED_PORT" ]; then
     echo "advertised port: $ADVERTISED_PORT"
     sed -r -i "s/#(advertised.port)=(.*)/\1=$ADVERTISED_PORT/g" $KAFKA_HOME/config/server.properties

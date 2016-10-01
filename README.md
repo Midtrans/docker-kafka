@@ -32,6 +32,8 @@ kafka-console-producer.sh --broker-list localhost:9092 --topic test
 kafka-console-consumer.sh --zookeeper localhost:2181 --topic test
 ```
 
+Note that the `ADVERTISED_HOST` ENV var is optional; if not set, Kafka will bind itself on the host's IP, as retrieved via the `hostname --ip-address` command.
+
 ## Get
 
 * Public build: https://registry.hub.docker.com/u/kchristidis/kafka/
