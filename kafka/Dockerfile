@@ -21,9 +21,6 @@ ADD scripts/start-kafka.sh scripts/start-zookeeper.sh /usr/bin/
 # Supervisor config
 ADD supervisor/kafka.conf supervisor/zookeeper.conf /etc/supervisor/conf.d/
 
-# Expose Kafka & Zookeeper's data & config directories
-# VOLUME ["/var/lib/zookeeper", "/etc/alternatives/zookeeper-conf", "/opt/kafka/config", "/mnt/kafka-logs"]
-
 # 2181 is zookeeper, 9092 is kafka
 EXPOSE 2181 9092
 
